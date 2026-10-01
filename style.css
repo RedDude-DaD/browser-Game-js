@@ -1,0 +1,406 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+}
+#playerUI {
+  position: absolute;
+  display: none;
+  /* background-color: red; */
+  /* opacity: 80%; */
+  width: 400px;
+  height: 728px;
+}
+
+#playerHP {
+  position: absolute;
+  /* display: none; */
+  background-color: rgb(113, 76, 76);
+  border-radius: 0 0 0 0;
+  top: 634px;
+  width: 340px;
+  height: 100px;
+  z-index: 1100;
+  opacity: 80%;
+  padding-left: 10px;
+}
+
+#health-bar-green {
+  position: absolute;
+  background-color: rgb(41, 235, 41);
+  top: 36px;
+  left: 180px;
+  height: 15px;
+  border-radius: 10px;
+  width: 150px;
+  z-index: 1400;
+  transition: width 0.2s ease;
+}
+#health-bar-red {
+  position: absolute;
+  background-color: rgb(235, 41, 41);
+  top: 36px;
+  left: 180px;
+  height: 15px;
+  border-radius: 10px;
+  width: 150px;
+  z-index: 1300;
+}
+
+#playerEXP {
+  position: absolute;
+  /* display: none; */
+  background-color: rgb(113, 76, 76);
+  border-radius: 0 20px 0 0;
+  top: 554px;
+  width: 340px;
+  height: 80px;
+  z-index: 1100;
+  opacity: 80%;
+  padding-left: 10px;
+}
+
+#xp-bar-yellow {
+  position: absolute;
+  background-color: rgb(235, 196, 41);
+  top: 36px;
+  left: 180px;
+  height: 15px;
+  border-radius: 10px;
+  width: 0px;
+  z-index: 1400;
+  transition: width 0.2s ease;
+}
+#xp-bar-gray {
+  position: absolute;
+  background-color: rgb(224, 112, 0);
+  top: 36px;
+  left: 180px;
+  height: 15px;
+  border-radius: 10px;
+  width: 150px;
+  z-index: 1300;
+}
+#gameChat {
+  font-size: 1.4em;
+  color: aliceblue;
+}
+#playerChat {
+  position: absolute;
+  /* display: none; */
+  border-radius: 0px 20px 0px 0;
+  top: 450px;
+  width: 350px;
+  height: 120px;
+  z-index: 1100;
+  opacity: 80%;
+  padding-left: 10px;
+}
+
+#showDamageScreen {
+  display: block;
+  position: absolute;
+  top: 230px;
+  left: 780px;
+  z-index: 2300;
+  width: 100px;
+  height: 100px;
+}
+#showDamageNumber {
+  color: red;
+  font-size: 2.25em;
+  text-shadow: 2px 0 #ec9201, -2px 0 #ec9201, 0 2px #ec9201, 0 -2px #ec9201,
+    1px 1px #ec9201, -1px -1px #ec9201, 1px -1px #ec9201, -1px 1px #ec9201;
+}
+
+#loadingScreen {
+  display: none;
+  position: absolute;
+  width: 2000px;
+  height: 1000px;
+  background-image: url("tileset/waiting.jpeg");
+  background-repeat: no-repeat;
+  background-size: 1537px 768px;
+  z-index: 2220;
+}
+
+#loadingText{
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 3em;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+}
+#instructionCase{
+  position: absolute;
+  /* background-color: red; */
+  left: -420px;
+  width: 310px;
+  top: -155px;
+}
+
+
+#instructions{
+  font-size: 1.75em;
+  font-style: italic;
+  top: -15px;
+  position: absolute;
+  color: white;
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+  1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+
+}
+
+.instText{
+  margin-top: 60px;
+  font-size: 1.25em;
+  color: rgb(208, 208, 208);
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+  1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+
+}
+
+#endGame{
+  position: absolute;
+  background-image: url("tileset/waiting.jpeg");
+  background-repeat: no-repeat;
+  background-size: 1537px 768px;
+  width: 1800px;
+  height: 1000px;
+  z-index: 4000;
+  display: none;
+}
+#endgameTitle{
+  font-size: 3em;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+    margin-left: 100px;
+}
+.endgameText{
+  margin-left: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.75em;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    margin-left: 100px;
+}
+#endGameButton{
+  background-color: forestgreen;
+  font-size: 1.52em;
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  top: 349px;
+  left: 659px;
+  height: 50px;
+  width: 200px;
+  border-radius: 14px;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+  border: #1c5500 2px solid;
+}
+
+#floor,
+#walls,
+#colision,
+#entities,
+#fog,
+#items {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+/* #fog{
+    display: none;
+} */
+
+#floor {
+  z-index: 200;
+}
+#walls {
+  z-index: 300;
+}
+#entities {
+  z-index: 400;
+}
+#items {
+  z-index: 350;
+}
+#colision {
+  z-index: 500;
+}
+#fog {
+  z-index: 600;
+}
+#playerUI {
+  z-index: 1000;
+}
+
+.cell {
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+#main-menu-background {
+  position: absolute;
+  width: 100%;
+  height: 729px;
+  z-index: 900;
+  /* overflow: hidden; */
+}
+#main-menu {
+  height: 350px;
+  width: 700px;
+  background-color: rgb(0, 0, 0, 0.6);
+  border-radius: 90px;
+  position: absolute;
+  top: 150px;
+  left: 430px;
+  display: flex;
+  z-index: 1000;
+  border: #1c5500 2px solid;
+}
+#main-menu-content {
+  margin: auto;
+  height: 300px;
+}
+#title-main-menu {
+  font-size: 3.6em;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+}
+#main-menu-button {
+  background-color: forestgreen;
+  font-size: 1.52em;
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  bottom: 100px;
+  left: 243px;
+  height: 50px;
+  width: 200px;
+  border-radius: 14px;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+  border: #1c5500 2px solid;
+}
+.statLevel {
+  padding: 6px 0 6px 9px;
+  margin: 0px;
+}
+
+#main-menu-botton:hover {
+  cursor:pointer;
+}
+
+#backpackUI {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  z-index: 1900;
+  display: none;
+  top: 350px;
+  left: 1000px;
+}
+
+#playerStatTitle {
+  font-size: 2.15em;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 0 #1c5500, -2px 0 #1c5500, 0 2px #1c5500, 0 -2px #1c5500,
+    1px 1px #1c5500, -1px -1px #1c5500, 1px -1px #1c5500, -1px 1px #1c5500;
+}
+#statSase {
+  display: flex;
+}
+.statIMG {
+  image-rendering: pixelated;
+  width: 75px;
+  margin-left: 13px;
+  margin-top: 10px;
+}
+
+#playerStats {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 515px;
+  z-index: 2500;
+  width: 450px;
+  height: 600px;
+  background-color: rgb(100, 90, 90);
+  border-radius: 20px;
+  border: 5px solid rgb(76, 35, 2);
+}
+#playerPoints {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.towerStat {
+  border-radius: 10px;
+  width: 100px;
+  margin: auto;
+  height: 400px;
+  background-color: #1c6ee9;
+  border: 1px solid rgb(0, 0, 0);
+}
+.statButton {
+  width: 94px;
+  height: 30px;
+  margin-left: 3px;
+  border-radius: 10px;
+  margin-top: 5px;
+  background-color: #e9d81c;
+}
+
+#backpackIMG {
+  width: 500px;
+  height: 400px;
+  image-rendering: pixelated;
+  position: absolute;
+  top: 15px;
+  left: 70px;
+}
+
+table {
+  width: 330px;
+  height: 234px;
+  position: absolute;
+  top: 100px;
+  left: 155px;
+}
+td {
+  width: 65px;
+  height: 65px;
+}
+.tableimg {
+  width: 65px;
+  height: 65px;
+  image-rendering: pixelated;
+  margin: 2px;
+  margin-left: 8px;
+}

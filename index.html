@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dungeon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main-menu">
+      <div id="main-menu-content">
+        <h1 id="title-main-menu"><i>Dungeon of Bad Decisions</i></h1>
+        <button id="main-menu-button" onclick="mainPage()"><b><i>START</i><b></button>
+      </div>
+      <div id="instructionCase">
+        <h3 id="instructions">How to play?</h3>
+        <h2 class="instText">-W A S D to move around the map and attacking monsters<br>
+          -Q for dropping items when there on the X in the inventory<br>
+          -H for opening stats<br>
+          -X for using a potion<br>
+          -Click on a item to equip or unequip<br>
+          -F for opening chests, grabing items, attacking monsters</h2>
+      </div>
+    </div>
+    <div id="main-menu-background"></div>
+    <div id="floor"></div>
+    <div id="walls"></div>
+    <div id="entities"></div>
+    <div id="items"></div>
+    <div id="colision"></div>
+    <div id="fog"></div> 
+    <div id="playerUI">
+      <div id="endGame">
+        <h1 class="endgameText" id="endgameTitle">You Win! / You Died!</h1>
+        <h3 class="endgameText" id="endgameMonsterKills">Monster kills: 28</h3>
+        <h3 class="endgameText" id="endgameBossKills">Boss kills: 2</h3>
+        <h3 class="endgameText" id="LastMap">Map reached: 5</h3>
+        <h3 class="endgameText" id="AtkStat">Attack Stat: 2</h3>
+        <h3 class="endgameText" id="HPStat">Health Stat: 1</h3>
+        <h3 class="endgameText" id="LuckStat">Luck Stat: 1</h3>
+        <h3 class="endgameText" id="ArmourStat">Armour Stat: 3</h3>
+        <h3 class="endgameText" id="endgamePoints">Points: 2301</h3>
+        <button id="endGameButton" onclick="endGameRestart()">Main Menu</button>
+      </div>
+        <div id="playerHP">
+          <h1 id="hp"></h1>
+          <div id="health-bar-green"></div>
+        <div id="health-bar-red"></div>
+        <!-- <progress max="99" value="55"></progress>  -->
+      </div>
+        <div id="playerEXP">
+          <h1 id="exp"> </h1>
+          <div id="xp-bar-yellow"></div>
+          <div id="xp-bar-gray"></div>
+        </div>
+        <div id="playerChat"><h1 id="gameChat"></h1></div>
+        <div id="playerStats">
+          <h1 id="playerStatTitle">PLAYER STATS</h1>
+          <h3 id="playerPoints">Player Points: 0 </h3>
+          <div id="statSase">
+            <div id="tower1" class="towerStat">
+              <img src="tileset/heart.png" id="heartIMG" class="statIMG">
+              <h4 id="heartLevel" class="statLevel">Level: 0</h4>
+              <button id="heart1" class="statButton" onclick="healthStat(1)">1</button>
+              <button id="heart2" class="statButton" onclick="healthStat(2)">2</button>
+              <button id="heart3" class="statButton" onclick="healthStat(3)">3</button>
+              <button id="heart4" class="statButton" onclick="healthStat(4)">4</button>
+              <button id="heart5" class="statButton" onclick="healthStat(5)">5</button>
+            </div>
+            <div id="tower2" class="towerStat">
+              
+              <img src="tileset/attack.png" id="attackIMG" class="statIMG">
+              <h4 id="attackLevel" class="statLevel">Level: 0</h4>
+              <button id="attack1" class="statButton" onclick="attackStat(1)">1</button>
+              <button id="attack2" class="statButton" onclick="attackStat(2)">2</button>
+              <button id="attack3" class="statButton" onclick="attackStat(3)">3</button>
+              <button id="attack4" class="statButton" onclick="attackStat(4)">4</button>
+              <button id="attack5" class="statButton" onclick="attackStat(5)">5</button>
+            </div>
+            <div id="tower3" class="towerStat">
+           
+              <img src="tileset/shield.png" id="armorIMG" class="statIMG">
+              <h4 id="shieldLevel" class="statLevel">Level: 0</h4>
+              <button id="shield1" class="statButton" onclick="shieldStat(1)">1</button>
+              <button id="shield2" class="statButton" onclick="shieldStat(2)">2</button>
+              <button id="shield3" class="statButton" onclick="shieldStat(3)">3</button>
+              <button id="shield4" class="statButton" onclick="shieldStat(4)">4</button>
+              <button id="shield5" class="statButton" onclick="shieldStat(5)">5</button>
+            </div>
+            <div id="tower4" class="towerStat">
+     
+              <img src="tileset/luck.png" id="luckIMG" class="statIMG">
+              <h4 id="luckLevel" class="statLevel">Level: 0</h4>
+              <button id="luck1" class="statButton" onclick="luckStat(1)">1</button>
+              <button id="luck2" class="statButton" onclick="luckStat(2)">2</button>
+              <button id="luck3" class="statButton" onclick="luckStat(3)">3</button>
+              <button id="luck4" class="statButton" onclick="luckStat(4)">4</button>
+              <button id="luck5" class="statButton" onclick="luckStat(5)">5</button>
+            </div>
+          </div>
+         
+        </div>
+
+        <div id="showDamageScreen"><h1 id="showDamageNumber"></h1></div>
+        <div id="loadingScreen"><h1 id="loadingText">Loading...</h1></div>
+
+  
+      </div>
+    <div id="backpackUI">
+      <img id="backpackIMG" src="tileset/backpack.png" alt="backpack">
+        <table id="testbackpack">
+          <tr>
+            <td><img id="ring1" src="tileset/22.png" class="tableimg nothing" onclick="unequipItem('ring1')"></td>
+            <td><img id="ring2" src="tileset/22.png" class="tableimg nothing" onclick="unequipItem('ring2')"></td>
+            <td><img id="necklace1" src="tileset/22.png" class="tableimg nothing" onclick="unequipItem('necklace1')"></td>
+            <td><img id="potion1" src="tileset/22.png" class="tableimg nothing" onclick="unequipItem('potion1')"></td>
+          </tr>
+          <tr>
+            <td><img id="item1" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item1')"></td>
+            <td><img id="item2" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item2')"></td>
+            <td><img id="item3" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item3')"></td>
+            <td><img id="item4" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item4')"></td>
+          </tr>
+          <tr>
+            <td><img id="item5" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item5')"></td>
+            <td><img id="item6" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item6')"></td>
+            <td><img id="item7" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item7')"></td>
+            <td><img id="item8" src="tileset/22.png" class="tableimg nothing" onclick="equipItem('item8')"></td>
+          </tr>
+          
+        </table>
+      
+    
+      </div>   
+  </body>
+  <script src="maps.js"></script>
+  <script src="switchimage.js"></script>
+  <script src="script.js"></script>
+</html>
